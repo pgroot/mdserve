@@ -22,7 +22,7 @@ mdserve
 
 Click on the address link such as http://localhost:8080 to open the browser
 
-![screenshot](https://github.com/pgroot/mdserve/raw/master/screenshot.png)
+![screenshot](https://github.com/pgroot/mdserve/blob/master/screenshot.png)
 
 
 ## Options
