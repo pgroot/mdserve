@@ -3,5 +3,4 @@ node_modules/
 dist/
 npm-debug.log
 .idea
-config.dev.js
-config.production.js
+package-lock.json
