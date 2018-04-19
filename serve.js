@@ -18,10 +18,16 @@ const run = (options) => {
 	})
 
 	app.get('/', (req, res) => {
-		let action = req.query.type
+		let action = req.query.type || 'dir'
 		let dir = req.query.path ? decodeURIComponent(req.query.path) : '/'
 		let absPath = path.join(options.dir, dir)
-		let dirs = markdown.scanDirectoryListing(absPath, options.exclude)
+		let dirs
+		try {
+			let dirs = markdown.scanDirectoryListing(absPath, options.exclude)
+		} catch (e) {
+			console.log(e)
+		}
+
 		let dirArr = dir.split('/').filter((item)=> !!item)
 		let currentFile
 		let html

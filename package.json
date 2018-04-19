@@ -1,6 +1,6 @@
 {
   "name": "mdserve2",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "serves Markdown files as GitHub style HTML your files in the browser",
   "preferGlobal": true,
   "scripts": {
@@ -28,10 +28,10 @@
     "mdserve": "cli.js"
   },
   "files": [
-    "server.js",
+    "serve.js",
     "cli.js",
-    "assets/less/github.less",
-    "assets/less/style.less"
+    "assets/**/*",
+    "src/**/*"
   ],
   "author": "GROOT <pzyme@outlook.com>",
   "email": "pzyme@outlook.com",
