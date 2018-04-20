@@ -203,13 +203,12 @@ const scanDirectoryListing = (dir, exclude) => {
 	dirs.forEach(subPath => {
 		const isDir = fs.statSync(path.join(dir, subPath)).isDirectory()
 		if (isDir) {
-			if(exclude && exclude.toString().indexOf(subPath) < 0) {
+			if(exclude.toString().indexOf(subPath) < 0) {
 				valid.push({
 					type: 'dir',
 					path: subPath
 				})
 			}
-
 		} else {
 			if(hasMarkdownExtension(subPath)) {
 				valid.push({

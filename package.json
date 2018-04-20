@@ -1,6 +1,6 @@
 {
   "name": "mdserve2",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "serves Markdown files as GitHub style HTML your files in the browser",
   "preferGlobal": true,
   "scripts": {

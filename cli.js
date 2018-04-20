@@ -9,7 +9,7 @@ const pkg = require('./package.json')
 const githubStylePath = path.join(__dirname, 'assets/less/github.less')
 
 options.version(pkg.version)
-	.option('-d, --dir [type]', 'Serve from directory [dir]', './')
+	.option('-d, --dir [type]', 'Serve from directory [dir]', null)
 	.option('-p, --port [type]', 'Serve on port [port]', '8080')
 	.option('-h, --host [type]', 'Serve on ip/address [address]', 'localhost')
 	.option('-H, --header [type]', 'Header template .md file', null)
@@ -21,7 +21,6 @@ options.version(pkg.version)
 	.option('-e, --exclude [type]', 'exclude directory [dir]', '')
 	.option('-S, --static [type]', 'express static directory [dir]', '')
 	.option('-v, --verbose', 'verbose output')
-
 	.parse(process.argv)
 
 options.$mdserve = {

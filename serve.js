@@ -8,22 +8,24 @@ const path = require('path')
 const express = require('express')
 const app = express()
 app.set('view engine', 'pug')
-app.set('views', './src/views')
+app.set('views', __dirname + '/src/views')
 app.use('/assets', express.static(__dirname + '/assets'));
 
 const run = (options) => {
+	let rootDir = options.dir || process.cwd()
 	let staticDirs = options.static.split(',')
+
 	staticDirs.forEach(d => {
-		app.use('/'+d, express.static(options.dir + '/' + d))
+		app.use('/'+d, express.static(rootDir + '/' + d))
 	})
 
 	app.get('/', (req, res) => {
 		let action = req.query.type || 'dir'
 		let dir = req.query.path ? decodeURIComponent(req.query.path) : '/'
-		let absPath = path.join(options.dir, dir)
-		let dirs
+		let absPath = path.join(rootDir, dir)
+		let dirs = []
 		try {
-			let dirs = markdown.scanDirectoryListing(absPath, options.exclude)
+			dirs = markdown.scanDirectoryListing(absPath, options.exclude)
 		} catch (e) {
 			console.log(e)
 		}
@@ -50,6 +52,8 @@ const run = (options) => {
 					send()
 				})
 				break;
+			default:
+				res.end('Not found')
 		}
 
 
